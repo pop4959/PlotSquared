@@ -176,7 +176,9 @@ public abstract class RegionManager {
     /**
      * Only called when {@link RegionManager#notifyClear()} returns true in specific PlotManagers
      */
-    public abstract boolean handleClear(Plot plot, final Runnable whenDone, PlotManager manager);
+    public boolean handleClear(Plot plot, final Runnable whenDone, PlotManager manager) {
+        return false;
+    }
 
     /**
      * Copy a region to a new location (in the same world)

@@ -110,10 +110,6 @@ public class BukkitRegionManager extends RegionManager {
         return chunks;
     }
 
-    @Override public boolean handleClear(Plot plot, Runnable whenDone, PlotManager manager) {
-        return false;
-    }
-
     @Override public int[] countEntities(Plot plot) {
         int[] existing = (int[]) plot.getMeta("EntityCount");
         if (existing != null && (System.currentTimeMillis() - (long) plot.getMeta("EntityCountTime")
