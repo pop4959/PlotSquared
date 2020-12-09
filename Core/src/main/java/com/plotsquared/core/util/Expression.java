@@ -25,12 +25,6 @@
  */
 package com.plotsquared.core.util;
 
-import com.plotsquared.core.PlotSquared;
-import com.plotsquared.core.command.DebugExec;
-import com.plotsquared.core.command.MainCommand;
-
-import javax.script.ScriptException;
-
 public abstract class Expression<T> {
     public static <U> Expression<U> constant(final U value) {
         return new Expression<U>() {
@@ -62,13 +56,6 @@ public abstract class Expression<T> {
         }
         return new Expression<Double>() {
             @Override public Double evaluate(Double arg) {
-                DebugExec exec = (DebugExec) MainCommand.getInstance().getCommand(DebugExec.class);
-                try {
-                    return (Double) exec.getEngine().eval(expression.replace("{arg}", "" + arg));
-                } catch (ScriptException e) {
-                    PlotSquared.debug("Invalid Expression: " + expression);
-                    e.printStackTrace();
-                }
                 return 0d;
             }
         };
